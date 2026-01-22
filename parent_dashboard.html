@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Parent Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header>
+  <h2>👨‍👩‍👧 Parent Dashboard</h2>
+</header>
+
+<main>
+  <p>Student progress overview:</p>
+
+  <div id="progressBox"></div>
+
+  <button onclick="go('index.html')">Home</button>
+</main>
+
+<script src="assets/js/script.js"></script>
+<script>
+  const data = JSON.parse(localStorage.getItem("musicApp"));
+  const box = document.getElementById("progressBox");
+
+  if (!data) {
+    box.innerHTML = "No data yet.";
+  } else {
+    box.innerHTML = `
+      Lessons completed: ${Object.keys(data.lessons).length}<br>
+      Badges earned: ${Object.keys(data.badges).length}
+    `;
+  }
+</script>
+</body>
+</html>
